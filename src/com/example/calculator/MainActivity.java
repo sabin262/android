@@ -186,16 +186,7 @@ btnAdd.setOnClickListener(new OnClickListener() {
 	@Override
 	public void onClick(View v) {
 		
-		TextView temp=(TextView)findViewById(R.id.txtTemp);
-		EditText input=(EditText)findViewById(R.id.txtInput);
-		//input.setText(input.getText()+"+");
-		///check if any other function is pressed or not
-		if (oper!="")
-			equalOperation();
-		else
-			temp.setText(input.getText());			
-		
-		input.setText(" ");
+		checkPOperation();
 		oper="+";
 		// TODO Auto-generated method stub
 		
@@ -233,15 +224,7 @@ btnSubtract.setOnClickListener(new OnClickListener() {
 	
 	@Override
 	public void onClick(View v) {
-		EditText input=(EditText)findViewById(R.id.txtInput);
-		//input.setText(input.getText()+"-");
-		TextView temp=(TextView)findViewById(R.id.txtTemp);
-		if (oper!="")
-			equalOperation();
-		else
-			temp.setText(input.getText());			
-		
-		input.setText(" ");
+		checkPOperation();
 		oper="-";
 		// TODO Auto-generated method stub
 		
@@ -251,15 +234,7 @@ btnDivide.setOnClickListener(new OnClickListener() {
 	
 	@Override
 	public void onClick(View v) {
-		EditText input=(EditText)findViewById(R.id.txtInput);
-		//input.setText(input.getText()+"/");
-		TextView temp=(TextView)findViewById(R.id.txtTemp);
-		if (oper!="")
-			equalOperation();
-		else
-			temp.setText(input.getText());			
-		
-		input.setText(" ");
+		checkPOperation();		
 		oper="/";
 		// TODO Auto-generated method stub
 		
@@ -269,15 +244,7 @@ btnMultiply.setOnClickListener(new OnClickListener() {
 	
 	@Override
 	public void onClick(View v) {
-		EditText input=(EditText)findViewById(R.id.txtInput);
-		//input.setText(input.getText()+"*");
-		TextView temp=(TextView)findViewById(R.id.txtTemp);
-		if (oper!="")
-			equalOperation();
-		else
-			temp.setText(input.getText());			
-		
-		input.setText(" ");
+		checkPOperation();;
 		oper="*";
 		// TODO Auto-generated method stub
 		
@@ -326,6 +293,18 @@ btnMultiply.setOnClickListener(new OnClickListener() {
             return rootView;
         }
     }
+    public void checkPOperation(){
+    	TextView temp=(TextView)findViewById(R.id.txtTemp);
+		EditText input=(EditText)findViewById(R.id.txtInput);
+		///check if any other function is pressed or not
+		if (oper!="")
+			equalOperation();
+		else
+			temp.setText(input.getText());			
+		input.setText("");
+		
+    	
+    }
     
     public void equalOperation(){
     	final TextView temp=(TextView)findViewById(R.id.txtTemp);
@@ -354,6 +333,7 @@ btnMultiply.setOnClickListener(new OnClickListener() {
 		}
 		//////make operand empty after equal to is pressed 
 		oper="";
+		input.setText("");
     	
     }
 
