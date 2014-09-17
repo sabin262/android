@@ -151,7 +151,7 @@ btn0.setOnClickListener(new OnClickListener() {
 	@Override
 	public void onClick(View v) {
 		EditText input=(EditText)findViewById(R.id.txtInput);
-		//to make sure that user can note enter zero when the string is empty
+		//to make sure that user can note enter zero when the string is null
 		if (input.getText().toString().length()!=0){
 			input.setText(input.getText()+"0");
 		}
