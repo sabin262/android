@@ -17,7 +17,7 @@ import android.os.Build;
 import android.view.View.OnClickListener;
 
 public class MainActivity extends Activity {
-	String oper;
+	String oper="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +52,7 @@ public class MainActivity extends Activity {
 				TextView temp=(TextView)findViewById(R.id.txtTemp);
 				input.setText(" ");
 				temp.setText(" ");
+				oper="";
 				// TODO Auto-generated method stub
 				
 			}
@@ -184,10 +185,16 @@ btnAdd.setOnClickListener(new OnClickListener() {
 	
 	@Override
 	public void onClick(View v) {
+		
 		TextView temp=(TextView)findViewById(R.id.txtTemp);
 		EditText input=(EditText)findViewById(R.id.txtInput);
 		//input.setText(input.getText()+"+");
-		temp.setText(input.getText());
+		///check if any other function is pressed or not
+		if (oper!="")
+			equalOperation();
+		else
+			temp.setText(input.getText());			
+		
 		input.setText(" ");
 		oper="+";
 		// TODO Auto-generated method stub
@@ -229,7 +236,11 @@ btnSubtract.setOnClickListener(new OnClickListener() {
 		EditText input=(EditText)findViewById(R.id.txtInput);
 		//input.setText(input.getText()+"-");
 		TextView temp=(TextView)findViewById(R.id.txtTemp);
-		temp.setText(input.getText());
+		if (oper!="")
+			equalOperation();
+		else
+			temp.setText(input.getText());			
+		
 		input.setText(" ");
 		oper="-";
 		// TODO Auto-generated method stub
@@ -243,7 +254,11 @@ btnDivide.setOnClickListener(new OnClickListener() {
 		EditText input=(EditText)findViewById(R.id.txtInput);
 		//input.setText(input.getText()+"/");
 		TextView temp=(TextView)findViewById(R.id.txtTemp);
-		temp.setText(input.getText());
+		if (oper!="")
+			equalOperation();
+		else
+			temp.setText(input.getText());			
+		
 		input.setText(" ");
 		oper="/";
 		// TODO Auto-generated method stub
@@ -257,7 +272,11 @@ btnMultiply.setOnClickListener(new OnClickListener() {
 		EditText input=(EditText)findViewById(R.id.txtInput);
 		//input.setText(input.getText()+"*");
 		TextView temp=(TextView)findViewById(R.id.txtTemp);
-		temp.setText(input.getText());
+		if (oper!="")
+			equalOperation();
+		else
+			temp.setText(input.getText());			
+		
 		input.setText(" ");
 		oper="*";
 		// TODO Auto-generated method stub
