@@ -165,14 +165,6 @@
         android:layout_toRightOf="@+id/btn5"
         android:text="3" />
 
-    <Button
-        android:id="@+id/btnClear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/btnAdd"
-        android:layout_alignTop="@+id/lblDisplay"
-        android:text="CLEAR" />
-
     <TextView
         android:id="@+id/txtTemp"
         android:layout_width="wrap_content"
@@ -182,5 +174,22 @@
         android:layout_marginLeft="24dp"
         android:inputType="number|numberSigned|numberDecimal"
         android:text=" " />
+
+    <Button
+        android:id="@+id/btnClear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/btn3"
+        android:layout_below="@+id/txtTemp"
+        android:text="CLEAR" />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnClear"
+        android:layout_alignBottom="@+id/btnClear"
+        android:layout_alignLeft="@+id/btnAdd"
+        android:text="&lt;-" />
 
 </RelativeLayout>

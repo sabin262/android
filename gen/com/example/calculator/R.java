@@ -25,7 +25,7 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f080015;
+        public static final int action_settings=0x7f080016;
         public static final int btn0=0x7f08000d;
         public static final int btn1=0x7f080011;
         public static final int btn2=0x7f080004;
@@ -37,7 +37,8 @@ public final class R {
         public static final int btn8=0x7f080009;
         public static final int btn9=0x7f08000b;
         public static final int btnAdd=0x7f080008;
-        public static final int btnClear=0x7f080013;
+        public static final int btnBack=0x7f080015;
+        public static final int btnClear=0x7f080014;
         public static final int btnDivide=0x7f08000f;
         public static final int btnMultiply=0x7f08000c;
         public static final int btnPoint=0x7f080012;
@@ -46,7 +47,7 @@ public final class R {
         public static final int container=0x7f080000;
         public static final int lblDisplay=0x7f08000e;
         public static final int txtInput=0x7f080001;
-        public static final int txtTemp=0x7f080014;
+        public static final int txtTemp=0x7f080013;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;

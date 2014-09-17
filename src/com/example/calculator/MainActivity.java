@@ -24,7 +24,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TextView temp=(TextView)findViewById(R.id.txtTemp);
-        Button btnClear,btn0,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btnAdd,btnSubtract,btnMultiply,btnDivide,btnPoint,btnShow;
+        Button btnClear,btn0,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btnAdd,btnSubtract,btnMultiply,btnDivide,btnPoint,btnShow,btnBack;
         btnClear=(Button)findViewById(R.id.btnClear);
         btn0=(Button)findViewById(R.id.btn0);
         btn1=(Button)findViewById(R.id.btn1);
@@ -43,6 +43,7 @@ public class MainActivity extends Activity {
         btnDivide=(Button)findViewById(R.id.btnDivide);
         btnShow=(Button)findViewById(R.id.btnShow);
         TextView display=(TextView)findViewById(R.id.lblDisplay);
+        btnBack=(Button)findViewById(R.id.btnBack);
         btnClear.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -155,6 +156,17 @@ btn0.setOnClickListener(new OnClickListener() {
 		
 	}
 });
+btnBack.setOnClickListener(new OnClickListener() {
+	
+	@Override
+	public void onClick(View v) {
+		EditText input=(EditText)findViewById(R.id.txtInput);
+		String s=input.getText().toString();
+		input.setText(s.substring(0, s.length()-1));
+		// TODO Auto-generated method stub
+		
+	}
+});
 btnPoint.setOnClickListener(new OnClickListener() {
 	
 	@Override
@@ -183,30 +195,7 @@ btnShow.setOnClickListener(new OnClickListener() {
 	
 	@Override
 	public void onClick(View v) {
-		final TextView temp=(TextView)findViewById(R.id.txtTemp);
-		float add;
-		float a=0;
-		//String oper="";
-		//oper="+";
-		EditText input=(EditText)findViewById(R.id.txtInput);
-		String b=temp.getText().toString();
-		a=Float.parseFloat(temp.getText().toString());
-		if(oper=="+"){
-			add=a+Float.parseFloat(input.getText().toString());
-			temp.setText(add+"");
-		}
-		else if(oper=="-"){
-			add=a-Float.parseFloat(input.getText().toString());
-			temp.setText(add+"");
-		}
-		else if(oper=="*"){
-			add=a*Float.parseFloat(input.getText().toString());
-			temp.setText(add+"");
-		}
-		else if(oper=="/"){
-			add=a/Float.parseFloat(input.getText().toString());
-			temp.setText(add+"");
-		}
+		equalOperation();
 		//add=a+Float.parseFloat(input.getText().toString());
 		//temp.setText(add+"");
 		/*String add="";
@@ -314,6 +303,36 @@ btnMultiply.setOnClickListener(new OnClickListener() {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             return rootView;
         }
+    }
+    
+    public void equalOperation(){
+    	final TextView temp=(TextView)findViewById(R.id.txtTemp);
+		float add;
+		float a=0;
+		//String oper="";
+		//oper="+";
+		EditText input=(EditText)findViewById(R.id.txtInput);
+		String b=temp.getText().toString();
+		a=Float.parseFloat(temp.getText().toString());
+		if(oper=="+"){
+			add=a+Float.parseFloat(input.getText().toString());
+			temp.setText(add+"");
+		}
+		else if(oper=="-"){
+			add=a-Float.parseFloat(input.getText().toString());
+			temp.setText(add+"");
+		}
+		else if(oper=="*"){
+			add=a*Float.parseFloat(input.getText().toString());
+			temp.setText(add+"");
+		}
+		else if(oper=="/"){
+			add=a/Float.parseFloat(input.getText().toString());
+			temp.setText(add+"");
+		}
+		//////make operand empty after equal to is pressed 
+		oper="";
+    	
     }
 
 }
