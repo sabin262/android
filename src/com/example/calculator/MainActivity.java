@@ -17,6 +17,7 @@ import android.os.Build;
 import android.view.View.OnClickListener;
 
 public class MainActivity extends Activity {
+	String oper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +43,14 @@ public class MainActivity extends Activity {
         btnDivide=(Button)findViewById(R.id.btnDivide);
         btnShow=(Button)findViewById(R.id.btnShow);
         TextView display=(TextView)findViewById(R.id.lblDisplay);
-btnClear.setOnClickListener(new OnClickListener() {
+        btnClear.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				EditText input=(EditText)findViewById(R.id.txtInput);
+				TextView temp=(TextView)findViewById(R.id.txtTemp);
 				input.setText(" ");
+				temp.setText(" ");
 				// TODO Auto-generated method stub
 				
 			}
@@ -72,7 +75,7 @@ btnClear.setOnClickListener(new OnClickListener() {
 				
 			}
 		});
-btn3.setOnClickListener(new OnClickListener() {
+        btn3.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -168,8 +171,10 @@ btnAdd.setOnClickListener(new OnClickListener() {
 	public void onClick(View v) {
 		TextView temp=(TextView)findViewById(R.id.txtTemp);
 		EditText input=(EditText)findViewById(R.id.txtInput);
+		//input.setText(input.getText()+"+");
 		temp.setText(input.getText());
 		input.setText(" ");
+		oper="+";
 		// TODO Auto-generated method stub
 		
 	}
@@ -181,19 +186,96 @@ btnShow.setOnClickListener(new OnClickListener() {
 		final TextView temp=(TextView)findViewById(R.id.txtTemp);
 		float add;
 		float a=0;
-		String oper="";
-		oper="+";
+		//String oper="";
+		//oper="+";
 		EditText input=(EditText)findViewById(R.id.txtInput);
 		String b=temp.getText().toString();
 		a=Float.parseFloat(temp.getText().toString());
-		add=a+Float.parseFloat(input.getText().toString());
-		temp.setText(add+"");
+		if(oper=="+"){
+			add=a+Float.parseFloat(input.getText().toString());
+			temp.setText(add+"");
+		}
+		else if(oper=="-"){
+			add=a-Float.parseFloat(input.getText().toString());
+			temp.setText(add+"");
+		}
+		else if(oper=="*"){
+			add=a*Float.parseFloat(input.getText().toString());
+			temp.setText(add+"");
+		}
+		else if(oper=="/"){
+			add=a/Float.parseFloat(input.getText().toString());
+			temp.setText(add+"");
+		}
+		//add=a+Float.parseFloat(input.getText().toString());
+		//temp.setText(add+"");
+		/*String add="";
+		String subtract="";
+		String divide="";
+		String multiply="";
+		add="+";
+		subtract="-";
+		divide="/";
+		multiply="*";
+		float show;
+		float result=0;
+    	final EditText input=(EditText)findViewById(R.id.txtInput);
+    	TextView temp=(TextView)findViewById(R.id.txtTemp);
+    	String s=input.getText().toString();
+    	result=Float.parseFloat(input.getText().toString());
+    	show=result;
+    	temp.setText(show+"");*/
 		
 		// TODO Auto-generated method stub
 		
 	}
 });
+btnSubtract.setOnClickListener(new OnClickListener() {
+	
+	@Override
+	public void onClick(View v) {
+		EditText input=(EditText)findViewById(R.id.txtInput);
+		//input.setText(input.getText()+"-");
+		TextView temp=(TextView)findViewById(R.id.txtTemp);
+		temp.setText(input.getText());
+		input.setText(" ");
+		oper="-";
+		// TODO Auto-generated method stub
+		
+	}
+});
+btnDivide.setOnClickListener(new OnClickListener() {
+	
+	@Override
+	public void onClick(View v) {
+		EditText input=(EditText)findViewById(R.id.txtInput);
+		//input.setText(input.getText()+"/");
+		TextView temp=(TextView)findViewById(R.id.txtTemp);
+		temp.setText(input.getText());
+		input.setText(" ");
+		oper="/";
+		// TODO Auto-generated method stub
+		
+	}
+});
+btnMultiply.setOnClickListener(new OnClickListener() {
+	
+	@Override
+	public void onClick(View v) {
+		EditText input=(EditText)findViewById(R.id.txtInput);
+		//input.setText(input.getText()+"*");
+		TextView temp=(TextView)findViewById(R.id.txtTemp);
+		temp.setText(input.getText());
+		input.setText(" ");
+		oper="*";
+		// TODO Auto-generated method stub
+		
+	}
+});
+
+	
         }
+   
     
 
 
@@ -216,6 +298,7 @@ btnShow.setOnClickListener(new OnClickListener() {
         }
         return super.onOptionsItemSelected(item);
     }
+    
 
     /**
      * A placeholder fragment containing a simple view.
